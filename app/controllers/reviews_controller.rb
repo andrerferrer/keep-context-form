@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to restaurant_path(@restaurant)
+      # You add an anchor to the redirection
+      redirect_to restaurant_path(@restaurant)#, anchor: 'last-review'
     else
       render 'restaurants/show'
     end
